@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partal — Ehtiyat hissələrinizi satın</title>
+  <meta name="description" content="Partal — ehtiyat hissəsi satıcıları üçün ixtisaslaşmış platforma. Kataloqunuzu yükləyin, alıcılar sizi tapsın. Tamamilə pulsuzdur."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #0d0d0b;
+      --g700:   #4a4a46;
+      --g500:   #888880;
+      --g400:   #aaaaaa;
+      --g300:   #ccccc4;
+      --g200:   #e0e0d8;
+      --g100:   #f2f2ee;
+      --g50:    #f9f9f6;
+      --white:  #ffffff;
+      --green:  #2e7d55;
+      --green-bg: #edf5f0;
+      --font-d: 'Playfair Display', Georgia, serif;
+      --font-b: 'Plus Jakarta Sans', sans-serif;
+      --container: 1160px;
+      --r: 16px;
+      --r-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* ── CONTAINER ── */
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--g200);
+      padding: 16px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--black); font-family: var(--font-b); font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-cta { background: var(--black); color: var(--white); border: none; border-radius: 24px; padding: 10px 22px; font-size: 14px; font-weight: 600; font-family: var(--font-b); cursor: pointer; text-decoration: none; transition: background .15s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--g700); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 0 80px;
+      border-bottom: 1px solid var(--g100);
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-label { display: inline-flex; align-items: center; gap: 6px; background: var(--green-bg); color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 24px; }
+    .hero-label::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .hero h1 { font-family: var(--font-d); font-size: clamp(38px, 4.5vw, 58px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 20px; }
+    .hero h1 em { font-style: italic; color: var(--g500); }
+    .hero-sub { font-size: 17px; color: var(--g700); line-height: 1.65; margin-bottom: 36px; max-width: 460px; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { background: var(--black); color: var(--white); border: none; border-radius: 28px; padding: 14px 28px; font-size: 15px; font-weight: 600; font-family: var(--font-b); cursor: pointer; text-decoration: none; transition: background .15s; display: inline-block; }
+    .btn-primary:hover { background: var(--g700); }
+    .btn-secondary { background: none; color: var(--black); border: 1.5px solid var(--g300); border-radius: 28px; padding: 13px 24px; font-size: 15px; font-weight: 600; font-family: var(--font-b); cursor: pointer; text-decoration: none; transition: border-color .15s, color .15s; display: inline-block; }
+    .btn-secondary:hover { border-color: var(--black); }
+    .hero-trust { margin-top: 24px; font-size: 13px; color: var(--g500); display: flex; align-items: center; gap: 6px; }
+    .hero-trust::before { content: '✓'; color: var(--green); font-weight: 700; }
+
+    /* Hero visual */
+    .hero-visual { position: relative; }
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--g200);
+      border-radius: var(--r);
+      padding: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
+    }
+    .hero-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .hero-card-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--g500); }
+    .hero-stat { text-align: right; }
+    .hero-stat-num { font-size: 24px; font-weight: 700; font-family: var(--font-b); color: var(--black); line-height: 1; }
+    .hero-stat-lbl { font-size: 11px; color: var(--g500); margin-top: 2px; }
+    .hero-search-mock { background: var(--g50); border: 1px solid var(--g200); border-radius: var(--r-sm); padding: 14px 16px; font-size: 14px; color: var(--g500); margin-bottom: 12px; font-style: italic; }
+    .hero-results { display: flex; flex-direction: column; gap: 8px; }
+    .hero-result-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: var(--g50); border-radius: var(--r-sm); border: 1px solid var(--g100); }
+    .hero-result-name { font-size: 14px; font-weight: 500; }
+    .hero-result-sub { font-size: 12px; color: var(--g500); margin-top: 2px; }
+    .hero-result-price { font-size: 14px; font-weight: 700; text-align: right; }
+    .hero-result-avail { font-size: 11px; color: var(--green); font-weight: 600; margin-top: 2px; text-align: right; }
+    .hero-badge { position: absolute; bottom: -16px; right: 24px; background: var(--black); color: var(--white); border-radius: 12px; padding: 10px 16px; font-size: 13px; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,.15); display: flex; align-items: center; gap: 8px; }
+    .hero-badge-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+
+    /* ── LOGOS / SOCIAL PROOF ── */
+    .proof-strip { padding: 40px 0; border-bottom: 1px solid var(--g100); }
+    .proof-inner { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .proof-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--g400); white-space: nowrap; }
+    .proof-divider { width: 1px; height: 20px; background: var(--g200); flex-shrink: 0; }
+    .proof-items { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .proof-item { font-size: 14px; font-weight: 600; color: var(--g400); display: flex; align-items: center; gap: 6px; }
+    .proof-item span { font-size: 12px; font-weight: 400; }
+
+    /* ── PROBLEM ── */
+    .problem { padding: 96px 0; background: var(--g50); border-bottom: 1px solid var(--g100); }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--g500); margin-bottom: 16px; }
+    .section-title { font-family: var(--font-d); font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 20px; }
+    .section-title em { font-style: italic; color: var(--g500); }
+    .section-sub { font-size: 17px; color: var(--g700); line-height: 1.65; max-width: 540px; }
+    .problem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .problem-points { display: flex; flex-direction: column; gap: 20px; margin-top: 36px; }
+    .problem-point { display: flex; align-items: flex-start; gap: 14px; }
+    .problem-icon { width: 36px; height: 36px; background: var(--white); border: 1px solid var(--g200); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .problem-text strong { display: block; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+    .problem-text p { font-size: 14px; color: var(--g700); line-height: 1.5; }
+    .problem-visual { display: flex; flex-direction: column; gap: 10px; }
+    .classifieds-mock { background: var(--white); border: 1px solid var(--g200); border-radius: var(--r); padding: 16px; }
+    .classifieds-header { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--g400); margin-bottom: 12px; }
+    .classifieds-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--g100); font-size: 13px; }
+    .classifieds-item:last-child { border-bottom: none; }
+    .classifieds-item.irrelevant { opacity: .35; text-decoration: line-through; }
+    .classifieds-item.relevant { font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+    .tag-bad { background: #fef2f2; color: #b83232; }
+    .tag-good { background: var(--green-bg); color: var(--green); }
+
+    /* ── HOW IT WORKS ── */
+    .how { padding: 96px 0; border-bottom: 1px solid var(--g100); }
+    .how-header { text-align: center; max-width: 560px; margin: 0 auto 64px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--g100); border-radius: var(--r); overflow: hidden; }
+    .step { background: var(--white); padding: 36px 32px; position: relative; }
+    .step-num { font-family: var(--font-d); font-size: 48px; font-weight: 700; color: var(--g200); line-height: 1; margin-bottom: 20px; }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: -.01em; }
+    .step p { font-size: 14px; color: var(--g700); line-height: 1.6; }
+    .step-arrow { position: absolute; right: -14px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; background: var(--g100); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1; }
+    .step:last-child .step-arrow { display: none; }
+
+    /* ── BENEFITS ── */
+    .benefits { padding: 96px 0; background: var(--g50); border-bottom: 1px solid var(--g100); }
+    .benefits-header { max-width: 560px; margin-bottom: 56px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--g200); border-radius: var(--r); overflow: hidden; }
+    .benefit-card { background: var(--white); padding: 36px; }
+    .benefit-icon { font-size: 28px; margin-bottom: 18px; }
+    .benefit-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: -.01em; }
+    .benefit-card p { font-size: 14px; color: var(--g700); line-height: 1.65; }
+    .benefit-card.highlight { background: var(--black); color: var(--white); }
+    .benefit-card.highlight h3 { color: var(--white); }
+    .benefit-card.highlight p { color: var(--g400); }
+
+    /* ── DIRECT CONTACT ── */
+    .direct { padding: 80px 0; border-bottom: 1px solid var(--g100); }
+    .direct-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .direct-quote { font-family: var(--font-d); font-size: clamp(22px, 2.5vw, 30px); font-weight: 600; font-style: italic; line-height: 1.4; color: var(--black); border-left: 3px solid var(--black); padding-left: 24px; margin: 24px 0; }
+    .direct-visual { background: var(--g50); border: 1px solid var(--g200); border-radius: var(--r); padding: 28px; }
+    .flow-step { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--g100); }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-dot { width: 32px; height: 32px; background: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--white); flex-shrink: 0; margin-top: 2px; }
+    .flow-dot.green { background: var(--green); }
+    .flow-content strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .flow-content span { font-size: 13px; color: var(--g500); }
+
+    /* ── PRICING ── */
+    .pricing { padding: 96px 0; background: var(--g50); border-bottom: 1px solid var(--g100); }
+    .pricing-header { text-align: center; max-width: 480px; margin: 0 auto 56px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+    .pricing-card { background: var(--white); border: 1px solid var(--g200); border-radius: var(--r); padding: 32px; position: relative; }
+    .pricing-card.current { border-color: var(--black); border-width: 2px; }
+    .pricing-card.future { opacity: .6; }
+    .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--black); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+    .pricing-tier { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--g500); margin-bottom: 12px; }
+    .pricing-price { font-family: var(--font-b); font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .pricing-price sup { font-size: 18px; font-weight: 600; vertical-align: super; }
+    .pricing-price-sub { font-size: 13px; color: var(--g500); margin-bottom: 24px; }
+    .pricing-features { display: flex; flex-direction: column; gap: 10px; }
+    .pricing-feature { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .pricing-feature::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .pricing-feature.dim { color: var(--g400); }
+    .pricing-feature.dim::before { color: var(--g300); content: '—'; }
+
+    /* ── FAQ ── */
+    .faq { padding: 96px 0; border-bottom: 1px solid var(--g100); }
+    .faq-header { max-width: 480px; margin-bottom: 48px; }
+    .faq-list { max-width: 720px; display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--g100); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; gap: 16px; user-select: none; }
+    .faq-q-text { font-size: 16px; font-weight: 600; line-height: 1.4; }
+    .faq-icon { width: 24px; height: 24px; border: 1.5px solid var(--g300); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; transition: transform .2s, background .2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--black); border-color: var(--black); color: var(--white); }
+    .faq-a { font-size: 15px; color: var(--g700); line-height: 1.7; padding-bottom: 20px; display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CTA FINAL ── */
+    .cta-final { padding: 100px 0; text-align: center; }
+    .cta-final h2 { font-family: var(--font-d); font-size: clamp(32px, 4vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 20px; }
+    .cta-final h2 em { font-style: italic; color: var(--g500); }
+    .cta-final p { font-size: 17px; color: var(--g700); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .cta-final-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-trust { margin-top: 20px; font-size: 13px; color: var(--g500); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--g50); border-top: 1px solid var(--g100); padding: 40px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .footer-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; color: var(--black); text-decoration: none; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--g500); text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--black); }
+    .footer-copy { font-size: 13px; color: var(--g400); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .hero { padding: 64px 0 56px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; }
+      .hero-badge { display: none; }
+      .problem-inner { grid-template-columns: 1fr; gap: 48px; }
+      .problem-visual { order: -1; }
+      .steps { grid-template-columns: 1fr; }
+      .step-arrow { display: none; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .direct-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .proof-inner { gap: 16px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero h1 { font-size: 34px; }
+      .section-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 22H12V2H4V22ZM17 2C14.2386 2 12 4.23858 12 7C12 9.76142 14.2386 12 17 12C19.7614 12 22 9.76142 22 7C22 4.23858 19.7614 2 17 2Z" fill="#0D0D0B"/></svg>
+        Partal
+      </a>
+      <a href="https://partalo.vercel.app" class="nav-cta">Pulsuz başla →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-label">Azərbaycan üçün</div>
+        <h1>Ehtiyat hissənizi<br/><em>axtaranlar var.</em></h1>
+        <p class="hero-sub">Partal — ehtiyat hissəsi satıcıları üçün ixtisaslaşmış platforma. Alıcılar sizin məhsulu axtarır — siz sadəcə kataloqunuzu yükləyin.</p>
+        <div class="hero-actions">
+          <a href="https://partalo.vercel.app" class="btn-primary">Pulsuz qeydiyyat →</a>
+          <a href="#how" class="btn-secondary">Necə işləyir</a>
+        </div>
+        <div class="hero-trust">Kart tələb olunmur. Heç bir öhdəlik yoxdur.</div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-title">Canlı axtarış</div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">2 san</div>
+              <div class="hero-stat-lbl">orta cavab vaxtı</div>
+            </div>
+          </div>
+          <div class="hero-search-mock">Toyota Camry 2016 radiator…</div>
+          <div class="hero-results">
+            <div class="hero-result-item">
+              <div>
+                <div class="hero-result-name">Soyutma radiatoru OEM</div>
+                <div class="hero-result-sub">Nissens · Bakı</div>
+              </div>
+              <div>
+                <div class="hero-result-price">₼185</div>
+                <div class="hero-result-avail">● Stokda var</div>
+              </div>
+            </div>
+            <div class="hero-result-item">
+              <div>
+                <div class="hero-result-name">Radiator aftermarket</div>
+                <div class="hero-result-sub">Çin · Bakı</div>
+              </div>
+              <div>
+                <div class="hero-result-price">₼120</div>
+                <div class="hero-result-avail">● Stokda var</div>
+              </div>
+            </div>
+            <div class="hero-result-item">
+              <div>
+                <div class="hero-result-name">Radiator + ventilyator</div>
+                <div class="hero-result-sub">Valeo · Gəncə</div>
+              </div>
+              <div>
+                <div class="hero-result-price">₼220</div>
+                <div class="hero-result-avail" style="color:var(--g500)">Sifarişlə</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          Alıcılar indi onlayndır
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<section class="proof-strip">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="proof-label">Tanınmış brendlər kataloqda</div>
+      <div class="proof-divider"></div>
+      <div class="proof-items">
+        <div class="proof-item">Bosch</div>
+        <div class="proof-item">Brembo</div>
+        <div class="proof-item">KYB</div>
+        <div class="proof-item">Mann</div>
+        <div class="proof-item">Gates</div>
+        <div class="proof-item">NGK</div>
+        <div class="proof-item">Sachs</div>
+        <div class="proof-item">Valeo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="problem-inner">
+      <div>
+        <div class="section-label">Problem</div>
+        <h2 class="section-title">Elanlarınız <em>itib gedir.</em></h2>
+        <p class="section-sub">Tap.az, OLX, Lalafo — bu platformalar hər şey üçündür. Alıcı ehtiyat hissəsi axtaranda mebellərin, telefonların, ev heyvanlarının arasında sizin elanınızı tapmaq çətindir.</p>
+        <div class="problem-points">
+          <div class="problem-point">
+            <div class="problem-icon">📋</div>
+            <div class="problem-text">
+              <strong>Hər elanı əllə əlavə etmək lazımdır</strong>
+              <p>Yüzlərlə məhsulunuz varsa, hər birini ayrıca yükləmək saatlar aparır.</p>
+            </div>
+          </div>
+          <div class="problem-point">
+            <div class="problem-icon">🔍</div>
+            <div class="problem-text">
+              <strong>Uyğun olmayan axtarış nəticələri</strong>
+              <p>Alıcı "Toyota Camry radiator" yazanda başqa şeylər görünür — siz yox.</p>
+            </div>
+          </div>
+          <div class="problem-point">
+            <div class="problem-icon">📞</div>
+            <div class="problem-text">
+              <strong>Vaxtınız itirilir</strong>
+              <p>Məhsulun olub-olmadığını soruşmaq üçün zəng edənlər — çünki kataloqunuz yoxdur.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="problem-visual">
+        <div class="classifieds-mock">
+          <div class="classifieds-header">Ümumi elan platforması — "radiator" axtarışı</div>
+          <div class="classifieds-item irrelevant"><span>Radiator qızdırıcı (ev)</span><span class="tag tag-bad">Uyğun deyil</span></div>
+          <div class="classifieds-item irrelevant"><span>Radiator boyası, 1L</span><span class="tag tag-bad">Uyğun deyil</span></div>
+          <div class="classifieds-item relevant"><span>Toyota Camry radiatoru</span><span class="tag tag-good">Uyğun</span></div>
+          <div class="classifieds-item irrelevant"><span>Radiator qapağı (tikinti)</span><span class="tag tag-bad">Uyğun deyil</span></div>
+          <div class="classifieds-item irrelevant"><span>İşlənmiş radiator batareyası</span><span class="tag tag-bad">Uyğun deyil</span></div>
+          <div class="classifieds-item relevant"><span>Peugeot 308 radiatoru</span><span class="tag tag-good">Uyğun</span></div>
+          <div class="classifieds-item irrelevant"><span>Radiator fan (kompüter)</span><span class="tag tag-bad">Uyğun deyil</span></div>
+        </div>
+        <div style="text-align:center; font-size:13px; color:var(--g500); margin-top:12px;">Partalda — yalnız ehtiyat hissəsi nəticələri</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how-header">
+      <div class="section-label">Necə işləyir</div>
+      <h2 class="section-title">3 addımda <em>başlayın</em></h2>
+      <p style="font-size:16px; color:var(--g700); line-height:1.65;">Qeydiyyatdan 10 dəqiqə sonra məhsullarınız axtarışda görünə bilər.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Qeydiyyat</h3>
+        <p>Telefon nömrənizlə 30 saniyəyə qeydiyyatdan keçin. Kart, müqavilə, sənəd tələb olunmur.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Kataloqunuzu yükləyin</h3>
+        <p>CSV, XLS, XLSX formatında qiymət siyahınızı yükləyin. Sistem avtomatik olaraq sütunları tanıyır və məhsul kartları yaradır.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Alıcılar sizi tapır</h3>
+        <p>Alıcı marka, model, il və hissə adını yazır — sizin məhsulunuz dərhal görünür. Əlaqə birbaşa sizinlə.</p>
+        <div class="step-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-header">
+      <div class="section-label">Üstünlüklər</div>
+      <h2 class="section-title">Niyə <em>Partal?</em></h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h3>İxtisaslaşmış auditoriya</h3>
+        <p>Partalda yalnız ehtiyat hissəsi axtaranlar var. Hər ziyarətçi potensial alıcınızdır — mebel, telefon, ev heyvanı axtaranlar yox.</p>
+      </div>
+      <div class="benefit-card highlight">
+        <div class="benefit-icon">⚡</div>
+        <h3>Ağıllı yükləmə</h3>
+        <p>Mövcud qiymət siyahınızı yükləyin — sistem sütunları özü tanıyır, məhsul kartlarını avtomatik yaradır. Əllə daxiletmə tələb olunmur.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🕐</div>
+        <h3>24/7 işləyir</h3>
+        <p>Kataloqnuz gecə-gündüz onlayndır. Siz yatarkən də alıcılar sizi tapır, zəng üçün nömrənizi görür.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📊</div>
+        <h3>Satış analitikası</h3>
+        <p>Hansı məhsullarınıza daha çox baxıldığını, neçə nəfərin sizinlə əlaqə saxladığını izləyin. Qərарlarınızı data ilə qəbul edin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECT CONTACT -->
+<section class="direct">
+  <div class="container">
+    <div class="direct-inner">
+      <div>
+        <div class="section-label">Şəffaflıq</div>
+        <h2 class="section-title">Biz arada <em>durmuruq.</em></h2>
+        <blockquote class="direct-quote">"Alıcı birbaşa sizinlə əlaqə saxlayır. Zəng, WhatsApp — istədiyiniz üsulla."</blockquote>
+        <p style="font-size:15px; color:var(--g700); line-height:1.7;">Partal sadəcə sizi tapılabilir edir. Satışdan pay almırıq, əməliyyatlarınıza nəzarət etmirik. Biznes məlumatlarınız yalnız sizə məxsusdur.</p>
+      </div>
+      <div class="direct-visual">
+        <div class="flow-step">
+          <div class="flow-dot">1</div>
+          <div class="flow-content">
+            <strong>Alıcı axtarış edir</strong>
+            <span>"Hyundai Accent 2018 tormoz bəndi" — Partalda</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot">2</div>
+          <div class="flow-content">
+            <strong>Sizin məhsulunuzu tapır</strong>
+            <span>Qiymət, vəziyyət, uyğunluq — hamısı göründü</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-dot green">3</div>
+          <div class="flow-content">
+            <strong>Birbaşa sizinlə əlaqə saxlayır</strong>
+            <span>WhatsApp və ya telefon — Partal araya girmir</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-label">Qiymətlər</div>
+      <h2 class="section-title">Sadə və <em>şəffaf.</em></h2>
+      <p style="font-size:16px; color:var(--g700); line-height:1.65; margin-top:12px;">İndi tamamilə pulsuzdur. Kart tələb olunmur.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card current">
+        <div class="pricing-badge">İndi aktiv</div>
+        <div class="pricing-tier">Başlanğıc</div>
+        <div class="pricing-price">Pulsuz</div>
+        <div class="pricing-price-sub">Kart tələb olunmur</div>
+        <div class="pricing-features">
+          <div class="pricing-feature">Limitsiz məhsul</div>
+          <div class="pricing-feature">CSV/XLS yükləmə</div>
+          <div class="pricing-feature">Axtarışda görünmə</div>
+          <div class="pricing-feature">Əlaqə statistikası</div>
+          <div class="pricing-feature">WhatsApp inteqrasiyası</div>
+        </div>
+      </div>
+      <div class="pricing-card future">
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-price"><sup>₼</sup>29</div>
+        <div class="pricing-price-sub">aylıq · tezliklə</div>
+        <div class="pricing-features">
+          <div class="pricing-feature">Başlanğıcdakı hər şey</div>
+          <div class="pricing-feature">Prioritet yerləşdirmə</div>
+          <div class="pricing-feature">Detallı analitika</div>
+          <div class="pricing-feature">Çoxlu mağaza</div>
+          <div class="pricing-feature dim">Tezliklə</div>
+        </div>
+      </div>
+      <div class="pricing-card future">
+        <div class="pricing-tier">Biznes</div>
+        <div class="pricing-price"><sup>₼</sup>79</div>
+        <div class="pricing-price-sub">aylıq · tezliklə</div>
+        <div class="pricing-features">
+          <div class="pricing-feature">Pro-dakı hər şey</div>
+          <div class="pricing-feature">API inteqrasiyası</div>
+          <div class="pricing-feature">Xüsusi dəstək</div>
+          <div class="pricing-feature">Toplu qiymətlər</div>
+          <div class="pricing-feature dim">Tezliklə</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-label">Suallar</div>
+      <h2 class="section-title">Tez-tez <em>soruşulanlar</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">OLX-də artıq satıram — Partal nə verir?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">OLX ümumi bir platformadır — alıcılar orada minlərlə fərqli kateqoriyadan axtarış edir. Partalda isə yalnız ehtiyat hissəsi axtaran insanlar var. Bu o deməkdir ki, sizin məhsulunuzu görən hər kəs potensial alıcıdır. Üstəlik, Partalda axtarış çox daha dəqiqdir — marka, model, il üzrə filtrasiya var.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Məhsulları əllə daxil etmək lazımdırmı?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Xeyr. Mövcud qiymət siyahınızı (CSV, Excel) yükləsəniz, sistem avtomatik olaraq sütunları tanıyır və məhsul kartlarını yaradır. Əgər qiymət siyahınız yoxdursa, tək-tək də əlavə edə bilərsiniz.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Satışdan faiz götürürsünüzmü?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Xeyr, heç vaxt. Partal sizinlə alıcı arasında körpüdür — alıcı birbaşa sizinlə əlaqə saxlayır (zəng, WhatsApp). Biz satış əməliyyatına qatışmırıq, pay almırıq. Biznes məlumatlarınız yalnız sizə məxsusdur.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Nə vaxtdan pullu olacaq?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Hazırda platforma tamamilə pulsuzdur və yaxın gələcəkdə belə qalacaq. Ödənişli plan gəldikdə, pulsuz versiya hər zaman mövcud olacaq — yalnız əlavə funksiyalar ödənişli olacaq. Kart məlumatı tələb olunmur.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Hansı şəhərlərdə işləyir?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Hazırda Bakı, Gəncə, Naxçıvan və bütün Azərbaycan üzrə işləyir. Digər şəhərlərdəki satıcılar da qeydiyyatdan keçə bilər — onların şəhəri axtarış filtrlərinə avtomatik əlavə olunur.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+  <div class="container">
+    <h2>İndi başlayın —<br/><em>tamamilə pulsuzdur.</em></h2>
+    <p>Qeydiyyat 30 saniyə çəkir. Kart tələb olunmur. İstənilən vaxt çıxa bilərsiniz.</p>
+    <div class="cta-final-actions">
+      <a href="https://partalo.vercel.app" class="btn-primary" style="font-size:16px; padding:16px 32px;">Pulsuz qeydiyyat →</a>
+    </div>
+    <div class="cta-trust">Artıq qeydiyyatdan keçmisiniz? <a href="https://partalo.vercel.app" style="color:var(--black); font-weight:600;">Daxil olun →</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 22H12V2H4V22ZM17 2C14.2386 2 12 4.23858 12 7C12 9.76142 14.2386 12 17 12C19.7614 12 22 9.76142 22 7C22 4.23858 19.7614 2 17 2Z" fill="#0D0D0B"/></svg>
+        Partal
+      </a>
+      <div class="footer-links">
+        <a href="https://partalo.vercel.app">Tətbiqə keç</a>
+        <a href="#how">Necə işləyir</a>
+        <a href="#faq">Suallar</a>
+      </div>
+      <div class="footer-copy">© 2026 Partal. Bütün hüquqlar qorunur.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
