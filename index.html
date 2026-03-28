@@ -58,7 +58,7 @@
     .lang-btn.active { background: var(--white); color: var(--black); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .lang-switcher { display: none; }
+      .lang-switcher { display: flex; }
     }
 
     /* ── HERO ── */
@@ -67,6 +67,7 @@
       border-bottom: 1px solid var(--g100);
     }
     .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    @media (max-width: 768px) { .hero-content { order: 1; } .hero-visual { order: 2; } }
     .hero-label { display: inline-flex; align-items: center; gap: 6px; background: var(--green-bg); color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 24px; }
     .hero-label::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
     .hero h1 { font-family: var(--font-d); font-size: clamp(38px, 4.5vw, 58px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 20px; }
@@ -223,10 +224,10 @@
     @media (max-width: 768px) {
       .hero { padding: 64px 0 56px; }
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero-visual { order: -1; }
+      /* hero order handled above */
       .hero-badge { display: none; }
       .problem-inner { grid-template-columns: 1fr; gap: 48px; }
-      .problem-visual { order: -1; }
+      .problem-visual { order: 2; }
       .steps { grid-template-columns: 1fr; }
       .step-arrow { display: none; }
       .benefits-grid { grid-template-columns: 1fr; }
@@ -252,7 +253,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 22H12V2H4V22ZM17 2C14.2386 2 12 4.23858 12 7C12 9.76142 14.2386 12 17 12C19.7614 12 22 9.76142 22 7C22 4.23858 19.7614 2 17 2Z" fill="#0D0D0B"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 22H12V2H4V22ZM17 2C14.2386 2 12 4.23858 12 7C12 9.76142 14.2386 12 17 12C19.7614 12 22 9.76142 22 7C22 4.23858 19.7614 2 17 2Z" fill="#0D0D0B"/></svg>
         Partal
       </a>
       <div class="nav-links" id="navLinks">
@@ -366,7 +367,7 @@
       <div>
         <div class="section-label"><span id="problem-label-text">Problem</span></div>
         <h2 class="section-title" id="problem-title">Elanlarınız <em>itib gedir.</em></h2>
-        <p class="section-sub">Tap.az, OLX, Lalafo — bu platformalar hər şey üçündür. Alıcı ehtiyat hissəsi axtaranda mebellərin, telefonların, ev heyvanlarının arasında sizin elanınızı tapmaq çətindir.</p>
+        <p class="section-sub" id="problem-sub">Tap.az, OLX, Lalafo — bu platformalar hər şey üçündür. Alıcı ehtiyat hissəsi axtaranda mebellərin, telefonların, ev heyvanlarının arasında sizin elanınızı tapmaq çətindir.</p>
         <div class="problem-points">
           <div class="problem-point">
             <div class="problem-icon">📋</div>
@@ -414,25 +415,25 @@
     <div class="how-header">
       <div class="section-label"><span id="how-label-text">Necə işləyir</span></div>
       <h2 class="section-title" id="how-title">3 addımda <em>başlayın</em></h2>
-      <p style="font-size:16px; color:var(--g700); line-height:1.65;">Qeydiyyatdan 10 dəqiqə sonra məhsullarınız axtarışda görünə bilər.</p>
+      <p id="how-sub" style="font-size:16px; color:var(--g700); line-height:1.65;">Qeydiyyatdan 10 dəqiqə sonra məhsullarınız axtarışda görünə bilər.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
-        <h3>Qeydiyyat</h3>
-        <p>Telefon nömrənizlə 30 saniyəyə qeydiyyatdan keçin. Kart, müqavilə, sənəd tələb olunmur.</p>
+        <h3 id="step1-title">Qeydiyyat</h3>
+        <p id="step1-body">Telefon nömrənizlə 30 saniyəyə qeydiyyatdan keçin. Kart, müqavilə, sənəd tələb olunmur.</p>
         <div class="step-arrow">→</div>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <h3>Kataloqunuzu yükləyin</h3>
-        <p>CSV, XLS, XLSX formatında qiymət siyahınızı yükləyin. Sistem avtomatik olaraq sütunları tanıyır və məhsul kartları yaradır.</p>
+        <h3 id="step2-title">Kataloqunuzu yükləyin</h3>
+        <p id="step2-body">CSV, XLS, XLSX formatında qiymət siyahınızı yükləyin. Sistem avtomatik olaraq sütunları tanıyır və məhsul kartları yaradır.</p>
         <div class="step-arrow">→</div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3>Alıcılar sizi tapır</h3>
-        <p>Alıcı marka, model, il və hissə adını yazır — sizin məhsulunuz dərhal görünür. Əlaqə birbaşa sizinlə.</p>
+        <h3 id="step3-title">Alıcılar sizi tapır</h3>
+        <p id="step3-body">Alıcı marka, model, il və hissə adını yazır — sizin məhsulunuz dərhal görünür. Əlaqə birbaşa sizinlə.</p>
         <div class="step-arrow">→</div>
       </div>
     </div>
@@ -449,23 +450,23 @@
     <div class="benefits-grid">
       <div class="benefit-card">
         <div class="benefit-icon">🎯</div>
-        <h3>İxtisaslaşmış auditoriya</h3>
-        <p>Partalda yalnız ehtiyat hissəsi axtaranlar var. Hər ziyarətçi potensial alıcınızdır — mebel, telefon, ev heyvanı axtaranlar yox.</p>
+        <h3 id="b1-title">İxtisaslaşmış auditoriya</h3>
+        <p id="b1-body">Partalda yalnız ehtiyat hissəsi axtaranlar var. Hər ziyarətçi potensial alıcınızdır — mebel, telefon, ev heyvanı axtaranlar yox.</p>
       </div>
       <div class="benefit-card highlight">
         <div class="benefit-icon">⚡</div>
-        <h3>Ağıllı yükləmə</h3>
-        <p>Mövcud qiymət siyahınızı yükləyin — sistem sütunları özü tanıyır, məhsul kartlarını avtomatik yaradır. Əllə daxiletmə tələb olunmur.</p>
+        <h3 id="b2-title">Ağıllı yükləmə</h3>
+        <p id="b2-body">Mövcud qiymət siyahınızı yükləyin — sistem sütunları özü tanıyır, məhsul kartlarını avtomatik yaradır. Əllə daxiletmə tələb olunmur.</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">🕐</div>
-        <h3>24/7 işləyir</h3>
-        <p>Kataloqnuz gecə-gündüz onlayndır. Siz yatarkən də alıcılar sizi tapır, zəng üçün nömrənizi görür.</p>
+        <h3 id="b3-title">24/7 işləyir</h3>
+        <p id="b3-body">Kataloqnuz gecə-gündüz onlayndır. Siz yatarkən də alıcılar sizi tapır, zəng üçün nömrənizi görür.</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">📊</div>
-        <h3>Satış analitikası</h3>
-        <p>Hansı məhsullarınıza daha çox baxıldığını, neçə nəfərin sizinlə əlaqə saxladığını izləyin. Qərарlarınızı data ilə qəbul edin.</p>
+        <h3 id="b4-title">Satış analitikası</h3>
+        <p id="b4-body">Hansı məhsullarınıza daha çox baxıldığını, neçə nəfərin sizinlə əlaqə saxladığını izləyin. Qərарlarınızı data ilə qəbul edin.</p>
       </div>
     </div>
   </div>
@@ -478,29 +479,29 @@
       <div>
         <div class="section-label"><span id="direct-label-text">Şəffaflıq</span></div>
         <h2 class="section-title" id="direct-title">Biz arada <em>durmuruq.</em></h2>
-        <blockquote class="direct-quote">"Alıcı birbaşa sizinlə əlaqə saxlayır. Zəng, WhatsApp — istədiyiniz üsulla."</blockquote>
-        <p style="font-size:15px; color:var(--g700); line-height:1.7;">Partal sadəcə sizi tapılabilir edir. Satışdan pay almırıq, əməliyyatlarınıza nəzarət etmirik. Biznes məlumatlarınız yalnız sizə məxsusdur.</p>
+        <blockquote class="direct-quote" id="direct-quote">"Alıcı birbaşa sizinlə əlaqə saxlayır. Zəng, WhatsApp — istədiyiniz üsulla."</blockquote>
+        <p id="direct-body" style="font-size:15px; color:var(--g700); line-height:1.7;">Partal sadəcə sizi tapılabilir edir. Satışdan pay almırıq, əməliyyatlarınıza nəzarət etmirik. Biznes məlumatlarınız yalnız sizə məxsusdur.</p>
       </div>
       <div class="direct-visual">
         <div class="flow-step">
           <div class="flow-dot">1</div>
           <div class="flow-content">
-            <strong>Alıcı axtarış edir</strong>
-            <span>"Hyundai Accent 2018 tormoz bəndi" — Partalda</span>
+            <strong id="flow1-title">Alıcı axtarış edir</strong>
+            <span id="flow1-sub">"Hyundai Accent 2018 tormoz bəndi" — Partalda</span>
           </div>
         </div>
         <div class="flow-step">
           <div class="flow-dot">2</div>
           <div class="flow-content">
-            <strong>Sizin məhsulunuzu tapır</strong>
-            <span>Qiymət, vəziyyət, uyğunluq — hamısı göründü</span>
+            <strong id="flow2-title">Sizin məhsulunuzu tapır</strong>
+            <span id="flow2-sub">Qiymət, vəziyyət, uyğunluq — hamısı göründü</span>
           </div>
         </div>
         <div class="flow-step">
           <div class="flow-dot green">3</div>
           <div class="flow-content">
-            <strong>Birbaşa sizinlə əlaqə saxlayır</strong>
-            <span>WhatsApp və ya telefon — Partal araya girmir</span>
+            <strong id="flow3-title">Birbaşa sizinlə əlaqə saxlayır</strong>
+            <span id="flow3-sub">WhatsApp və ya telefon — Partal araya girmir</span>
           </div>
         </div>
       </div>
@@ -514,43 +515,43 @@
     <div class="pricing-header">
       <div class="section-label"><span id="pricing-label-text">Qiymətlər</span></div>
       <h2 class="section-title" id="pricing-title">Sadə və <em>şəffaf.</em></h2>
-      <p style="font-size:16px; color:var(--g700); line-height:1.65; margin-top:12px;">İndi tamamilə pulsuzdur. Kart tələb olunmur.</p>
+      <p id="pricing-sub" style="font-size:16px; color:var(--g700); line-height:1.65; margin-top:12px;">İndi tamamilə pulsuzdur. Kart tələb olunmur.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card current">
-        <div class="pricing-badge">İndi aktiv</div>
-        <div class="pricing-tier">Başlanğıc</div>
-        <div class="pricing-price">Pulsuz</div>
-        <div class="pricing-price-sub">Kart tələb olunmur</div>
+        <div class="pricing-badge"><span id="pricing-badge-text">İndi aktiv</span></div>
+        <div class="pricing-tier" id="tier1">Başlanğıc</div>
+        <div class="pricing-price" id="price1">Pulsuz</div>
+        <div class="pricing-price-sub" id="price1-sub">Kart tələb olunmur</div>
         <div class="pricing-features">
-          <div class="pricing-feature">Limitsiz məhsul</div>
-          <div class="pricing-feature">CSV/XLS yükləmə</div>
-          <div class="pricing-feature">Axtarışda görünmə</div>
-          <div class="pricing-feature">Əlaqə statistikası</div>
-          <div class="pricing-feature">WhatsApp inteqrasiyası</div>
+          <div class="pricing-feature" id="feat1-1">Limitsiz məhsul</div>
+          <div class="pricing-feature" id="feat1-2">CSV/XLS yükləmə</div>
+          <div class="pricing-feature" id="feat1-3">Axtarışda görünmə</div>
+          <div class="pricing-feature" id="feat1-4">Əlaqə statistikası</div>
+          <div class="pricing-feature" id="feat1-5">WhatsApp inteqrasiyası</div>
         </div>
       </div>
       <div class="pricing-card future">
-        <div class="pricing-tier">Pro</div>
+        <div class="pricing-tier" id="tier2">Pro</div>
         <div class="pricing-price"><sup>₼</sup>29</div>
-        <div class="pricing-price-sub">aylıq · tezliklə</div>
+        <div class="pricing-price-sub" id="price2-sub">aylıq · tezliklə</div>
         <div class="pricing-features">
-          <div class="pricing-feature">Başlanğıcdakı hər şey</div>
-          <div class="pricing-feature">Prioritet yerləşdirmə</div>
-          <div class="pricing-feature">Detallı analitika</div>
-          <div class="pricing-feature">Çoxlu mağaza</div>
+          <div class="pricing-feature" id="feat2-1">Başlanğıcdakı hər şey</div>
+          <div class="pricing-feature" id="feat2-2">Prioritet yerləşdirmə</div>
+          <div class="pricing-feature" id="feat2-3">Detallı analitika</div>
+          <div class="pricing-feature" id="feat2-4">Çoxlu mağaza</div>
           <div class="pricing-feature dim">Tezliklə</div>
         </div>
       </div>
       <div class="pricing-card future">
-        <div class="pricing-tier">Biznes</div>
+        <div class="pricing-tier" id="tier3">Biznes</div>
         <div class="pricing-price"><sup>₼</sup>79</div>
-        <div class="pricing-price-sub">aylıq · tezliklə</div>
+        <div class="pricing-price-sub" id="price3-sub">aylıq · tezliklə</div>
         <div class="pricing-features">
-          <div class="pricing-feature">Pro-dakı hər şey</div>
-          <div class="pricing-feature">API inteqrasiyası</div>
-          <div class="pricing-feature">Xüsusi dəstək</div>
-          <div class="pricing-feature">Toplu qiymətlər</div>
+          <div class="pricing-feature" id="feat3-1">Pro-dakı hər şey</div>
+          <div class="pricing-feature" id="feat3-2">API inteqrasiyası</div>
+          <div class="pricing-feature" id="feat3-3">Xüsusi dəstək</div>
+          <div class="pricing-feature" id="feat3-4">Toplu qiymətlər</div>
           <div class="pricing-feature dim">Tezliklə</div>
         </div>
       </div>
@@ -571,38 +572,38 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">OLX-də artıq satıram — Partal nə verir?</span>
+          <span class="faq-q-text" id="faq1-q">OLX-də artıq satıram — Partal nə verir?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a">OLX ümumi bir platformadır — alıcılar orada minlərlə fərqli kateqoriyadan axtarış edir. Partalda isə yalnız ehtiyat hissəsi axtaran insanlar var. Bu o deməkdir ki, sizin məhsulunuzu görən hər kəs potensial alıcıdır. Üstəlik, Partalda axtarış çox daha dəqiqdir — marka, model, il üzrə filtrasiya var.</div>
+        <div class="faq-a" id="faq1-a">OLX ümumi bir platformadır — alıcılar orada minlərlə fərqli kateqoriyadan axtarış edir. Partalda isə yalnız ehtiyat hissəsi axtaran insanlar var. Bu o deməkdir ki, sizin məhsulunuzu görən hər kəs potensial alıcıdır. Üstəlik, Partalda axtarış çox daha dəqiqdir — marka, model, il üzrə filtrasiya var.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Məhsulları əllə daxil etmək lazımdırmı?</span>
+          <span class="faq-q-text" id="faq2-q">Məhsulları əllə daxil etmək lazımdırmı?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a">Xeyr. Mövcud qiymət siyahınızı (CSV, Excel) yükləsəniz, sistem avtomatik olaraq sütunları tanıyır və məhsul kartlarını yaradır. Əgər qiymət siyahınız yoxdursa, tək-tək də əlavə edə bilərsiniz.</div>
+        <div class="faq-a" id="faq2-a">Xeyr. Mövcud qiymət siyahınızı (CSV, Excel) yükləsəniz, sistem avtomatik olaraq sütunları tanıyır və məhsul kartlarını yaradır. Əgər qiymət siyahınız yoxdursa, tək-tək də əlavə edə bilərsiniz.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Satışdan faiz götürürsünüzmü?</span>
+          <span class="faq-q-text" id="faq3-q">Satışdan faiz götürürsünüzmü?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a">Xeyr, heç vaxt. Partal sizinlə alıcı arasında körpüdür — alıcı birbaşa sizinlə əlaqə saxlayır (zəng, WhatsApp). Biz satış əməliyyatına qatışmırıq, pay almırıq. Biznes məlumatlarınız yalnız sizə məxsusdur.</div>
+        <div class="faq-a" id="faq3-a">Xeyr, heç vaxt. Partal sizinlə alıcı arasında körpüdür — alıcı birbaşa sizinlə əlaqə saxlayır (zəng, WhatsApp). Biz satış əməliyyatına qatışmırıq, pay almırıq. Biznes məlumatlarınız yalnız sizə məxsusdur.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Nə vaxtdan pullu olacaq?</span>
+          <span class="faq-q-text" id="faq4-q">Nə vaxtdan pullu olacaq?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a">Hazırda platforma tamamilə pulsuzdur və yaxın gələcəkdə belə qalacaq. Ödənişli plan gəldikdə, pulsuz versiya hər zaman mövcud olacaq — yalnız əlavə funksiyalar ödənişli olacaq. Kart məlumatı tələb olunmur.</div>
+        <div class="faq-a" id="faq4-a">Hazırda platforma tamamilə pulsuzdur və yaxın gələcəkdə belə qalacaq. Ödənişli plan gəldikdə, pulsuz versiya hər zaman mövcud olacaq — yalnız əlavə funksiyalar ödənişli olacaq. Kart məlumatı tələb olunmur.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Hansı şəhərlərdə işləyir?</span>
+          <span class="faq-q-text" id="faq5-q">Hansı şəhərlərdə işləyir?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a">Hazırda Bakı, Gəncə, Naxçıvan və bütün Azərbaycan üzrə işləyir. Digər şəhərlərdəki satıcılar da qeydiyyatdan keçə bilər — onların şəhəri axtarış filtrlərinə avtomatik əlavə olunur.</div>
+        <div class="faq-a" id="faq5-a">Hazırda Bakı, Gəncə, Naxçıvan və bütün Azərbaycan üzrə işləyir. Digər şəhərlərdəki satıcılar da qeydiyyatdan keçə bilər — onların şəhəri axtarış filtrlərinə avtomatik əlavə olunur.</div>
       </div>
     </div>
   </div>
@@ -616,7 +617,7 @@
     <div class="cta-final-actions">
       <a href="https://partalo.vercel.app" class="btn-primary" style="font-size:16px; padding:16px 32px;">Pulsuz qeydiyyat →</a>
     </div>
-    <div class="cta-trust">Artıq qeydiyyatdan keçmisiniz? <a href="https://partalo.vercel.app" style="color:var(--black); font-weight:600;">Daxil olun →</a></div>
+    <div class="cta-trust"><span id="cta-registered">Artıq qeydiyyatdan keçmisiniz?</span> <a href="https://partalo.vercel.app" id="cta-login" style="color:var(--black); font-weight:600;">Daxil olun →</a></div>
   </div>
 </section>
 
@@ -625,15 +626,15 @@
   <div class="container">
     <div class="footer-inner">
       <a href="#" class="footer-logo">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 22H12V2H4V22ZM17 2C14.2386 2 12 4.23858 12 7C12 9.76142 14.2386 12 17 12C19.7614 12 22 9.76142 22 7C22 4.23858 19.7614 2 17 2Z" fill="#0D0D0B"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 22H12V2H4V22ZM17 2C14.2386 2 12 4.23858 12 7C12 9.76142 14.2386 12 17 12C19.7614 12 22 9.76142 22 7C22 4.23858 19.7614 2 17 2Z" fill="#0D0D0B"/></svg>
         Partal
       </a>
       <div class="footer-links">
-        <a href="https://partalo.vercel.app">Tətbiqə keç</a>
-        <a href="#how">Necə işləyir</a>
-        <a href="#faq">Suallar</a>
+        <a href="https://partalo.vercel.app" class="footer-link-app">Tətbiqə keç</a>
+        <a href="#how" class="footer-link-how">Necə işləyir</a>
+        <a href="#faq" class="footer-link-faq">Suallar</a>
       </div>
-      <div class="footer-copy">© 2026 Partal. Bütün hüquqlar qorunur.</div>
+      <div class="footer-copy" id="footer-copy">© 2026 Partal. Bütün hüquqlar qorunur.</div>
     </div>
   </div>
 </footer>
@@ -678,6 +679,36 @@
       'cta-sub': 'Qeydiyyat 30 saniyə çəkir. Kart tələb olunmur. İstənilən vaxt çıxa bilərsiniz.',
       'nav-cta': 'Pulsuz başla →',
       'pricing-cta': 'Pulsuz başla — kart tələb olunmur →',
+      'problem-sub': 'Tap.az, OLX, Lalafo — bu platformalar hər şey üçündür. Alıcı ehtiyat hissəsi axtaranda mebellərin, telefonların, ev heyvanlarının arasında sizin elanınızı tapmaq çətindir.',
+      'how-sub': 'Qeydiyyatdan 10 dəqiqə sonra məhsullarınız axtarışda görünə bilər.',
+      'step1-title': 'Qeydiyyat', 'step1-body': 'Telefon nömrənizlə 30 saniyəyə qeydiyyatdan keçin. Kart, müqavilə, sənəd tələb olunmur.',
+      'step2-title': 'Kataloqunuzu yükləyin', 'step2-body': 'CSV, XLS, XLSX formatında qiymət siyahınızı yükləyin. Sistem avtomatik olaraq sütunları tanıyır və məhsul kartları yaradır.',
+      'step3-title': 'Alıcılar sizi tapır', 'step3-body': 'Alıcı marka, model, il və hissə adını yazır — sizin məhsulunuz dərhal görünür. Əlaqə birbaşa sizinlə.',
+      'b1-title': 'İxtisaslaşmış auditoriya', 'b1-body': 'Partalda yalnız ehtiyat hissəsi axtaranlar var. Hər ziyarətçi potensial alıcınızdır.',
+      'b2-title': 'Ağıllı yükləmə', 'b2-body': 'Mövcud qiymət siyahınızı yükləyin — sistem sütunları özü tanıyır, məhsul kartlarını avtomatik yaradır.',
+      'b3-title': '24/7 işləyir', 'b3-body': 'Kataloqnuz gecə-gündüz onlayndır. Siz yatarkən də alıcılar sizi tapır.',
+      'b4-title': 'Satış analitikası', 'b4-body': 'Hansı məhsullarınıza daha çox baxıldığını izləyin. Qərарlarınızı data ilə qəbul edin.',
+      'direct-quote': '"Alıcı birbaşa sizinlə əlaqə saxlayır. Zəng, WhatsApp, istədiyiniz üsulla. Partal sadəcə sizi tapılabilir edir."',
+      'direct-body': 'Partal sadəcə sizi tapılabilir edir. Satışdan pay almırıq, əməliyyatlarınıza nəzarət etmirik. Biznes məlumatlarınız yalnız sizə məxsusdur.',
+      'flow1-title': 'Alıcı axtarış edir', 'flow1-sub': '"Hyundai Accent 2018 tormoz bəndi" — Partalda',
+      'flow2-title': 'Sizin məhsulunuzu tapır', 'flow2-sub': 'Qiymət, vəziyyət, uyğunluq — hamısı göründü',
+      'flow3-title': 'Birbaşa sizinlə əlaqə saxlayır', 'flow3-sub': 'WhatsApp və ya telefon — Partal araya girmir',
+      'pricing-sub': 'İndi tamamilə pulsuzdur. Kart tələb olunmur.',
+      'tier1': 'Başlanğıc', 'tier2': 'Pro', 'tier3': 'Biznes',
+      'price1': 'Pulsuz', 'price1-sub': 'Kart tələb olunmur',
+      'price2-sub': 'aylıq · tezliklə', 'price3-sub': 'aylıq · tezliklə',
+      'feat1-1': 'Limitsiz məhsul', 'feat1-2': 'CSV/XLS yükləmə', 'feat1-3': 'Axtarışda görünmə', 'feat1-4': 'Əlaqə statistikası', 'feat1-5': 'WhatsApp inteqrasiyası',
+      'feat2-1': 'Başlanğıcdakı hər şey', 'feat2-2': 'Prioritet yerləşdirmə', 'feat2-3': 'Detallı analitika', 'feat2-4': 'Çoxlu mağaza',
+      'feat3-1': 'Pro-dakı hər şey', 'feat3-2': 'API inteqrasiyası', 'feat3-3': 'Xüsusi dəstək', 'feat3-4': 'Toplu qiymətlər',
+      'pricing-badge': 'İndi aktiv',
+      'faq1-q': 'OLX-də artıq satıram — Partal nə verir?', 'faq1-a': 'OLX ümumi bir platformadır — alıcılar orada minlərlə fərqli kateqoriyadan axtarış edir. Partalda isə yalnız ehtiyat hissəsi axtaran insanlar var.',
+      'faq2-q': 'Məhsulları əllə daxil etmək lazımdırmı?', 'faq2-a': 'Xeyr. Mövcud qiymət siyahınızı (CSV, Excel) yükləsəniz, sistem avtomatik olaraq sütunları tanıyır.',
+      'faq3-q': 'Satışdan faiz götürürsünüzmü?', 'faq3-a': 'Xeyr, heç vaxt. Partal sizinlə alıcı arasında körpüdür — alıcı birbaşa sizinlə əlaqə saxlayır.',
+      'faq4-q': 'Nə vaxtdan pullu olacaq?', 'faq4-a': 'Hazırda platforma tamamilə pulsuzdur və yaxın gələcəkdə belə qalacaq.',
+      'faq5-q': 'Hansı şəhərlərdə işləyir?', 'faq5-a': 'Hazırda Bakı, Gəncə, Naxçıvan və bütün Azərbaycan üzrə işləyir.',
+      'cta-registered': 'Artıq qeydiyyatdan keçmisiniz?', 'cta-login': 'Daxil olun →',
+      'footer-app': 'Tətbiqə keç', 'footer-how': 'Necə işləyir', 'footer-faq': 'Suallar',
+      'footer-copy': '© 2026 Partal. Bütün hüquqlar qorunur.',
     },
     ru: {
       'hero-label': 'Для Азербайджана',
@@ -687,76 +718,257 @@
       'proof-label': 'Известные бренды в каталоге',
       'problem-label': 'Проблема',
       'problem-title': 'Ваши объявления <em>теряются.</em>',
+      'problem-sub': 'Tap.az, OLX, Lalafo — эти платформы для всего подряд. Когда покупатель ищет запчасть, ваше объявление тонет среди мебели, телефонов и животных.',
       'how-label': 'Как работает',
       'how-title': 'Начните за <em>3 шага</em>',
+      'how-sub': 'Через 10 минут после регистрации ваши товары могут появиться в поиске.',
+      'step1-title': 'Регистрация',
+      'step1-body': 'Зарегистрируйтесь по номеру телефона за 30 секунд. Карта, договор, документы не нужны.',
+      'step2-title': 'Загрузите каталог',
+      'step2-body': 'Загрузите прайс-лист в формате CSV, XLS или XLSX. Система автоматически распознаёт столбцы и создаёт карточки товаров.',
+      'step3-title': 'Покупатели находят вас',
+      'step3-body': 'Покупатель вводит марку, модель, год и название детали — ваш товар появляется сразу. Контакт напрямую с вами.',
       'benefits-label': 'Преимущества',
       'benefits-title': 'Почему <em>Partal?</em>',
+      'b1-title': 'Целевая аудитория',
+      'b1-body': 'На Partal только те, кто ищет запчасти. Каждый посетитель — потенциальный покупатель, а не искатель мебели или телефонов.',
+      'b2-title': 'Умная загрузка',
+      'b2-body': 'Загрузите существующий прайс-лист — система сама распознаёт столбцы и создаёт карточки товаров. Ручной ввод не нужен.',
+      'b3-title': 'Работает 24/7',
+      'b3-body': 'Ваш каталог онлайн круглосуточно. Пока вы отдыхаете, покупатели находят вас и видят ваш номер для звонка.',
+      'b4-title': 'Аналитика продаж',
+      'b4-body': 'Отслеживайте, какие товары просматривают чаще всего и сколько человек связалось с вами. Принимайте решения на основе данных.',
       'direct-label': 'Прозрачность',
       'direct-title': 'Мы не <em>посредники.</em>',
+      'direct-quote': '"Покупатель связывается с вами напрямую. Звонок, WhatsApp — как вам удобно. Partal просто делает вас заметными."',
+      'direct-body': 'Partal — это инструмент для поиска, а не торговая площадка. Мы не берём комиссию с продаж, не контролируем ваши операции. Ваши бизнес-данные принадлежат только вам.',
+      'flow1-title': 'Покупатель ищет',
+      'flow1-sub': '"Тормозные колодки Hyundai Accent 2018" — на Partal',
+      'flow2-title': 'Находит ваш товар',
+      'flow2-sub': 'Цена, состояние, совместимость — всё видно',
+      'flow3-title': 'Связывается напрямую с вами',
+      'flow3-sub': 'WhatsApp или телефон — Partal не вмешивается',
       'pricing-label': 'Цены',
       'pricing-title': 'Просто и <em>прозрачно.</em>',
+      'pricing-sub': 'Сейчас полностью бесплатно. Карта не нужна.',
+      'tier1': 'Старт',
+      'tier2': 'Про',
+      'tier3': 'Бизнес',
+      'price1': 'Бесплатно',
+      'price1-sub': 'Карта не нужна',
+      'price2-sub': 'в месяц · скоро',
+      'price3-sub': 'в месяц · скоро',
+      'feat1-1': 'Неограниченное кол-во товаров',
+      'feat1-2': 'Загрузка CSV/XLS',
+      'feat1-3': 'Отображение в поиске',
+      'feat1-4': 'Статистика контактов',
+      'feat1-5': 'Интеграция WhatsApp',
+      'feat2-1': 'Всё из тарифа Старт',
+      'feat2-2': 'Приоритетное размещение',
+      'feat2-3': 'Детальная аналитика',
+      'feat2-4': 'Несколько магазинов',
+      'feat3-1': 'Всё из тарифа Про',
+      'feat3-2': 'API интеграция',
+      'feat3-3': 'Персональная поддержка',
+      'feat3-4': 'Оптовые цены',
+      'pricing-badge': 'Сейчас активно',
       'faq-label': 'Вопросы',
       'faq-title': 'Часто задаваемые <em>вопросы</em>',
+      'faq1-q': 'Я уже продаю на OLX — что даёт Partal?',
+      'faq1-a': 'OLX — универсальная платформа, где покупатели ищут тысячи разных категорий. На Partal только люди, которые ищут запчасти. Это значит, что каждый посетитель — ваш потенциальный покупатель. Плюс поиск на Partal намного точнее — по марке, модели, году.',
+      'faq2-q': 'Нужно ли вводить товары вручную?',
+      'faq2-a': 'Нет. Загрузите существующий прайс-лист (CSV, Excel) — система автоматически распознаёт столбцы и создаёт карточки товаров. Если прайс-листа нет, можно добавлять по одному.',
+      'faq3-q': 'Берёте ли вы комиссию с продаж?',
+      'faq3-a': 'Нет, никогда. Partal — это мост между вами и покупателем. Покупатель связывается с вами напрямую (звонок, WhatsApp). Мы не участвуем в сделке и не берём долю.',
+      'faq4-q': 'Когда станет платным?',
+      'faq4-a': 'Платформа полностью бесплатна и останется такой в ближайшем будущем. Когда появятся платные тарифы, бесплатная версия сохранится — платными будут только дополнительные функции. Карта не нужна.',
+      'faq5-q': 'В каких городах работает?',
+      'faq5-a': 'Сейчас работает в Баку, Гяндже, Нахчыване и по всему Азербайджану. Продавцы из других городов тоже могут зарегистрироваться — их город автоматически добавится в фильтры поиска.',
       'cta-title': 'Начните сейчас —<br/><em>это бесплатно.</em>',
       'cta-sub': 'Регистрация займёт 30 секунд. Карта не нужна. Выйти можно в любой момент.',
+      'cta-registered': 'Уже зарегистрированы?',
+      'cta-login': 'Войти →',
       'nav-cta': 'Начать бесплатно →',
       'pricing-cta': 'Начать бесплатно — карта не нужна →',
+      'footer-app': 'Перейти в приложение',
+      'footer-how': 'Как работает',
+      'footer-faq': 'Вопросы',
+      'footer-copy': '© 2026 Partal. Все права защищены.',
     },
     en: {
       'hero-label': 'For Azerbaijan',
       'hero-h1': 'Buyers are searching<br/><em>for your parts.</em>',
-      'hero-sub': 'Partal — a specialized platform for auto parts sellers. Buyers are looking for your products — just upload your catalog.',
+      'hero-sub': 'Partal — a specialized platform for auto parts sellers. Buyers are already looking for your products — just upload your catalog.',
       'hero-trust': 'No card required. No commitment.',
       'proof-label': 'Recognized brands in catalog',
       'problem-label': 'The problem',
       'problem-title': 'Your listings <em>get lost.</em>',
+      'problem-sub': 'Tap.az, OLX, Lalafo — these platforms are for everything. When a buyer searches for a spare part, your listing gets buried under furniture, phones, and pets.',
       'how-label': 'How it works',
       'how-title': 'Get started in <em>3 steps</em>',
+      'how-sub': 'Your products can appear in search within 10 minutes of signing up.',
+      'step1-title': 'Register',
+      'step1-body': 'Sign up with your phone number in 30 seconds. No card, contract, or documents required.',
+      'step2-title': 'Upload your catalog',
+      'step2-body': 'Upload your price list in CSV, XLS, or XLSX format. The system automatically recognizes columns and creates product cards.',
+      'step3-title': 'Buyers find you',
+      'step3-body': 'A buyer types make, model, year and part name — your product appears instantly. Contact goes directly to you.',
       'benefits-label': 'Benefits',
       'benefits-title': 'Why <em>Partal?</em>',
+      'b1-title': 'Targeted audience',
+      'b1-body': 'On Partal, only people looking for spare parts visit. Every visitor is a potential buyer — not someone looking for furniture or a phone.',
+      'b2-title': 'Smart upload',
+      'b2-body': 'Upload your existing price list — the system recognizes columns automatically and creates product cards. No manual entry needed.',
+      'b3-title': 'Works 24/7',
+      'b3-body': 'Your catalog is online around the clock. While you sleep, buyers find you and see your contact number.',
+      'b4-title': 'Sales analytics',
+      'b4-body': 'Track which products get the most views and how many people contacted you. Make decisions based on data.',
       'direct-label': 'Transparency',
       'direct-title': 'We stay <em>out of the way.</em>',
+      'direct-quote': '"The buyer contacts you directly. Call, WhatsApp — however you prefer. Partal simply makes you findable."',
+      'direct-body': 'Partal is a discovery tool, not a marketplace. We take no commission from sales and don't monitor your transactions. Your business data belongs only to you.',
+      'flow1-title': 'Buyer searches',
+      'flow1-sub': '"Hyundai Accent 2018 brake pads" — on Partal',
+      'flow2-title': 'Finds your product',
+      'flow2-sub': 'Price, condition, compatibility — all visible',
+      'flow3-title': 'Contacts you directly',
+      'flow3-sub': 'WhatsApp or phone — Partal doesn't interfere',
       'pricing-label': 'Pricing',
       'pricing-title': 'Simple and <em>transparent.</em>',
+      'pricing-sub': 'Completely free right now. No card required.',
+      'tier1': 'Starter',
+      'tier2': 'Pro',
+      'tier3': 'Business',
+      'price1': 'Free',
+      'price1-sub': 'No card required',
+      'price2-sub': 'per month · coming soon',
+      'price3-sub': 'per month · coming soon',
+      'feat1-1': 'Unlimited products',
+      'feat1-2': 'CSV/XLS upload',
+      'feat1-3': 'Search visibility',
+      'feat1-4': 'Contact statistics',
+      'feat1-5': 'WhatsApp integration',
+      'feat2-1': 'Everything in Starter',
+      'feat2-2': 'Priority placement',
+      'feat2-3': 'Detailed analytics',
+      'feat2-4': 'Multiple stores',
+      'feat3-1': 'Everything in Pro',
+      'feat3-2': 'API integration',
+      'feat3-3': 'Dedicated support',
+      'feat3-4': 'Volume pricing',
+      'pricing-badge': 'Currently active',
       'faq-label': 'FAQ',
       'faq-title': 'Frequently asked <em>questions</em>',
+      'faq1-q': 'I already sell on OLX — what does Partal add?',
+      'faq1-a': 'OLX is a general platform where buyers search across thousands of categories. On Partal, only people looking for spare parts visit. That means every visitor is your potential customer. Plus, Partal's search is far more precise — filtering by make, model, and year.',
+      'faq2-q': 'Do I need to enter products manually?',
+      'faq2-a': 'No. Upload your existing price list (CSV, Excel) and the system automatically recognizes columns and creates product cards. If you don't have a price list, you can add items one by one.',
+      'faq3-q': 'Do you take a commission on sales?',
+      'faq3-a': 'No, never. Partal is a bridge between you and the buyer. The buyer contacts you directly (call, WhatsApp). We don't participate in the transaction and take no share.',
+      'faq4-q': 'When will it become paid?',
+      'faq4-a': 'The platform is completely free and will stay that way for the foreseeable future. When paid plans arrive, the free version will remain — only additional features will be paid. No card required.',
+      'faq5-q': 'Which cities does it work in?',
+      'faq5-a': 'Currently works in Baku, Ganja, Nakhchivan, and across all of Azerbaijan. Sellers from other cities can also register — their city is automatically added to search filters.',
       'cta-title': 'Start now —<br/><em>completely free.</em>',
       'cta-sub': 'Registration takes 30 seconds. No card required. Cancel anytime.',
+      'cta-registered': 'Already registered?',
+      'cta-login': 'Sign in →',
       'nav-cta': 'Start free →',
       'pricing-cta': 'Start free — no card required →',
+      'footer-app': 'Go to app',
+      'footer-how': 'How it works',
+      'footer-faq': 'FAQ',
+      'footer-copy': '© 2026 Partal. All rights reserved.',
     }
   };
 
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll(`.lang-btn[onclick="setLang('${lang}')"]`).forEach(b => b.classList.add('active'));
     const t = TRANSLATIONS[lang];
-    // Nav links
+    const set = (id, html) => { const el = document.getElementById(id); if(el && html) el.innerHTML = html; };
+    const setText = (id, txt) => { const el = document.getElementById(id); if(el && txt) el.textContent = txt; };
+
+    // Nav
     document.querySelectorAll('.nav-link').forEach(el => { if(el.dataset[lang]) el.textContent = el.dataset[lang]; });
     document.querySelectorAll('.nav-cta').forEach(el => { if(el.dataset[lang]) el.textContent = el.dataset[lang]; });
-    // Sections
-    const set = (id, html) => { const el = document.getElementById(id); if(el) el.innerHTML = html; };
+
+    // Hero
     set('hero-label-text', t['hero-label']);
     set('hero-h1', t['hero-h1']);
     set('hero-sub', t['hero-sub']);
     set('hero-trust', t['hero-trust']);
+
+    // Proof
     set('proof-label-text', t['proof-label']);
+
+    // Problem
     set('problem-label-text', t['problem-label']);
     set('problem-title', t['problem-title']);
+    set('problem-sub', t['problem-sub']);
+
+    // How
     set('how-label-text', t['how-label']);
     set('how-title', t['how-title']);
+    set('how-sub', t['how-sub']);
+    set('step1-title', t['step1-title']);
+    set('step1-body', t['step1-body']);
+    set('step2-title', t['step2-title']);
+    set('step2-body', t['step2-body']);
+    set('step3-title', t['step3-title']);
+    set('step3-body', t['step3-body']);
+
+    // Benefits
     set('benefits-label-text', t['benefits-label']);
     set('benefits-title', t['benefits-title']);
+    set('b1-title', t['b1-title']); set('b1-body', t['b1-body']);
+    set('b2-title', t['b2-title']); set('b2-body', t['b2-body']);
+    set('b3-title', t['b3-title']); set('b3-body', t['b3-body']);
+    set('b4-title', t['b4-title']); set('b4-body', t['b4-body']);
+
+    // Direct
     set('direct-label-text', t['direct-label']);
     set('direct-title', t['direct-title']);
+    set('direct-quote', t['direct-quote']);
+    set('direct-body', t['direct-body']);
+    set('flow1-title', t['flow1-title']); set('flow1-sub', t['flow1-sub']);
+    set('flow2-title', t['flow2-title']); set('flow2-sub', t['flow2-sub']);
+    set('flow3-title', t['flow3-title']); set('flow3-sub', t['flow3-sub']);
+
+    // Pricing
     set('pricing-label-text', t['pricing-label']);
     set('pricing-title', t['pricing-title']);
+    set('pricing-sub', t['pricing-sub']);
+    set('tier1', t['tier1']); set('tier2', t['tier2']); set('tier3', t['tier3']);
+    set('price1', t['price1']); set('price1-sub', t['price1-sub']);
+    set('price2-sub', t['price2-sub']); set('price3-sub', t['price3-sub']);
+    set('feat1-1', t['feat1-1']); set('feat1-2', t['feat1-2']); set('feat1-3', t['feat1-3']); set('feat1-4', t['feat1-4']); set('feat1-5', t['feat1-5']);
+    set('feat2-1', t['feat2-1']); set('feat2-2', t['feat2-2']); set('feat2-3', t['feat2-3']); set('feat2-4', t['feat2-4']);
+    set('feat3-1', t['feat3-1']); set('feat3-2', t['feat3-2']); set('feat3-3', t['feat3-3']); set('feat3-4', t['feat3-4']);
+    set('pricing-badge-text', t['pricing-badge']);
+    const pricingCta = document.getElementById('pricing-cta');
+    if(pricingCta && t['pricing-cta']) pricingCta.textContent = t['pricing-cta'];
+
+    // FAQ
     set('faq-label-text', t['faq-label']);
     set('faq-title', t['faq-title']);
+    set('faq1-q', t['faq1-q']); set('faq1-a', t['faq1-a']);
+    set('faq2-q', t['faq2-q']); set('faq2-a', t['faq2-a']);
+    set('faq3-q', t['faq3-q']); set('faq3-a', t['faq3-a']);
+    set('faq4-q', t['faq4-q']); set('faq4-a', t['faq4-a']);
+    set('faq5-q', t['faq5-q']); set('faq5-a', t['faq5-a']);
+
+    // CTA
     set('cta-title', t['cta-title']);
     set('cta-sub', t['cta-sub']);
-    const pricingCta = document.getElementById('pricing-cta');
-    if(pricingCta) pricingCta.textContent = t['pricing-cta'];
+    set('cta-registered', t['cta-registered']);
+    set('cta-login', t['cta-login']);
+
+    // Footer
+    document.querySelectorAll('.footer-link-app').forEach(el => { if(t['footer-app']) el.textContent = t['footer-app']; });
+    document.querySelectorAll('.footer-link-how').forEach(el => { if(t['footer-how']) el.textContent = t['footer-how']; });
+    document.querySelectorAll('.footer-link-faq').forEach(el => { if(t['footer-faq']) el.textContent = t['footer-faq']; });
+    set('footer-copy', t['footer-copy']);
   }
 
   // Scroll animations
