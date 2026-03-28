@@ -264,9 +264,9 @@
       </div>
       <div class="nav-right">
         <div class="lang-switcher">
-          <button class="lang-btn active" onclick="setLang('az')">AZ</button>
-          <button class="lang-btn" onclick="setLang('ru')">RU</button>
-          <button class="lang-btn" onclick="setLang('en')">EN</button>
+          <button class="lang-btn active" data-lang="az" onclick="setLang('az')">AZ</button>
+          <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
         </div>
         <a href="https://partalo.vercel.app" class="nav-cta" data-az="Pulsuz başla →" data-ru="Начать бесплатно →" data-en="Start free →">Pulsuz başla →</a>
       </div>
@@ -826,13 +826,13 @@
       'direct-label': 'Transparency',
       'direct-title': 'We stay <em>out of the way.</em>',
       'direct-quote': '"The buyer contacts you directly. Call, WhatsApp — however you prefer. Partal simply makes you findable."',
-      'direct-body': 'Partal is a discovery tool, not a marketplace. We take no commission from sales and don't monitor your transactions. Your business data belongs only to you.',
+      'direct-body': 'Partal is a discovery tool, not a marketplace. We take no commission from sales and do not monitor your transactions. Your business data belongs only to you.',
       'flow1-title': 'Buyer searches',
       'flow1-sub': '"Hyundai Accent 2018 brake pads" — on Partal',
       'flow2-title': 'Finds your product',
       'flow2-sub': 'Price, condition, compatibility — all visible',
       'flow3-title': 'Contacts you directly',
-      'flow3-sub': 'WhatsApp or phone — Partal doesn't interfere',
+      'flow3-sub': 'WhatsApp or phone — Partal does not interfere',
       'pricing-label': 'Pricing',
       'pricing-title': 'Simple and <em>transparent.</em>',
       'pricing-sub': 'Completely free right now. No card required.',
@@ -862,9 +862,9 @@
       'faq1-q': 'I already sell on OLX — what does Partal add?',
       'faq1-a': 'OLX is a general platform where buyers search across thousands of categories. On Partal, only people looking for spare parts visit. That means every visitor is your potential customer. Plus, Partal's search is far more precise — filtering by make, model, and year.',
       'faq2-q': 'Do I need to enter products manually?',
-      'faq2-a': 'No. Upload your existing price list (CSV, Excel) and the system automatically recognizes columns and creates product cards. If you don't have a price list, you can add items one by one.',
+      'faq2-a': 'No. Upload your existing price list (CSV, Excel) and the system automatically recognizes columns and creates product cards. If you do not have a price list, you can add items one by one.',
       'faq3-q': 'Do you take a commission on sales?',
-      'faq3-a': 'No, never. Partal is a bridge between you and the buyer. The buyer contacts you directly (call, WhatsApp). We don't participate in the transaction and take no share.',
+      'faq3-a': 'No, never. Partal is a bridge between you and the buyer. The buyer contacts you directly (call, WhatsApp). We do not participate in the transaction and take no share.',
       'faq4-q': 'When will it become paid?',
       'faq4-a': 'The platform is completely free and will stay that way for the foreseeable future. When paid plans arrive, the free version will remain — only additional features will be paid. No card required.',
       'faq5-q': 'Which cities does it work in?',
@@ -883,8 +883,10 @@
   };
 
   function setLang(lang) {
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll(`.lang-btn[onclick="setLang('${lang}')"]`).forEach(b => b.classList.add('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.remove('active');
+      if(b.getAttribute('data-lang') === lang) b.classList.add('active');
+    });
     const t = TRANSLATIONS[lang];
     const set = (id, html) => { const el = document.getElementById(id); if(el && html) el.innerHTML = html; };
     const setText = (id, txt) => { const el = document.getElementById(id); if(el && txt) el.textContent = txt; };
