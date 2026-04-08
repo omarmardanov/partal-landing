@@ -4,6 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Partal — Ehtiyat hissələrinizi satın</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20d%3D%22M4%2022H12V2H4V22ZM17%202C14.2386%202%2012%204.23858%2012%207C12%209.76142%2014.2386%2012%2017%2012C19.7614%2012%2022%209.76142%2022%207C22%204.23858%2019.7614%202%2017%202Z%22%20fill%3D%22%230D0D0B%22/%3E%0A%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
   <meta name="description" content="Partal — ehtiyat hissəsi satıcıları üçün ixtisaslaşmış platforma. Kataloqunuzu yükləyin, alıcılar sizi tapsın. Tamamilə pulsuzdur."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -45,7 +47,7 @@
       padding: 16px 0;
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--black); font-family: var(--font-b); font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--black); font-family: var(--font-d); font-weight: 700; font-size: 20px; letter-spacing: -.01em; }
     .nav-logo svg { flex-shrink: 0; }
     .nav-cta { background: var(--black); color: var(--white); border: none; border-radius: 24px; padding: 10px 22px; font-size: 14px; font-weight: 600; font-family: var(--font-b); cursor: pointer; text-decoration: none; transition: background .15s; white-space: nowrap; }
     .nav-cta:hover { background: var(--g700); }
@@ -54,11 +56,14 @@
     .nav-link:hover { color: var(--black); background: var(--g50); }
     .nav-right { display: flex; align-items: center; gap: 12px; }
     .lang-switcher { display: flex; align-items: center; background: var(--g100); border-radius: 20px; padding: 3px; gap: 2px; }
-    .lang-btn { background: none; border: none; font-size: 12px; font-weight: 600; font-family: var(--font-b); color: var(--g500); padding: 4px 10px; border-radius: 16px; cursor: pointer; transition: background .15s, color .15s; }
+    .lang-btn { background: none; border: none; font-size: 11px; font-weight: 700; font-family: var(--font-b); color: var(--g500); padding: 5px 9px; border-radius: 16px; cursor: pointer; transition: background .15s, color .15s; letter-spacing: .04em; }
     .lang-btn.active { background: var(--white); color: var(--black); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .lang-switcher { display: flex; }
+      .nav-right { gap: 8px; }
+      .nav-cta { padding: 8px 14px; font-size: 13px; }
+      .lang-btn { padding: 5px 7px; font-size: 10px; }
     }
 
     /* ── HERO ── */
@@ -211,6 +216,23 @@
     .cta-final-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .cta-trust { margin-top: 20px; font-size: 13px; color: var(--g500); }
 
+    /* ── SUPPORT ── */
+    .support { padding: 96px 0; background: var(--g50); border-bottom: 1px solid var(--g100); }
+    .support-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .support-items { display: flex; flex-direction: column; gap: 24px; }
+    .support-item { display: flex; align-items: flex-start; gap: 14px; }
+    .support-item-icon { font-size: 22px; margin-top: 2px; flex-shrink: 0; }
+    .support-item strong { display: block; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+    .support-item p { font-size: 14px; color: var(--g700); line-height: 1.55; }
+    .support-card { background: var(--white); border: 1px solid var(--g200); border-radius: var(--r); padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,.04); }
+    .support-card-header { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--g500); margin-bottom: 20px; }
+    .support-checklist { display: flex; flex-direction: column; gap: 12px; }
+    .support-check { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 500; line-height: 1.4; }
+    .support-check.no { color: var(--g500); }
+    .check-icon { font-size: 13px; font-weight: 700; color: var(--green); flex-shrink: 0; margin-top: 1px; }
+    .check-icon.no { color: var(--g400); }
+    @media (max-width: 768px) { .support-inner { grid-template-columns: 1fr; gap: 40px; } }
+
     /* ── FOOTER ── */
     footer { background: var(--g50); border-top: 1px solid var(--g100); padding: 40px 0; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
@@ -261,6 +283,7 @@
         <a href="#benefits" class="nav-link" data-az="Üstünlüklər" data-ru="Преимущества" data-en="Benefits">Üstünlüklər</a>
         <a href="#pricing" class="nav-link" data-az="Qiymətlər" data-ru="Цены" data-en="Pricing">Qiymətlər</a>
         <a href="#faq" class="nav-link" data-az="Suallar" data-ru="Вопросы" data-en="FAQ">Suallar</a>
+        <a href="#support" class="nav-link" data-az="Dəstək" data-ru="Поддержка" data-en="Support">Dəstək</a>
       </div>
       <div class="nav-right">
         <div class="lang-switcher">
@@ -268,7 +291,7 @@
           <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
           <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
         </div>
-        <a href="https://partalo.vercel.app" class="nav-cta" data-az="Pulsuz başla →" data-ru="Начать бесплатно →" data-en="Start free →">Pulsuz başla →</a>
+        <a href="https://az.partal.app" class="nav-cta" data-az="Pulsuz başla →" data-ru="Начать бесплатно →" data-en="Start free →">Pulsuz başla →</a>
       </div>
     </div>
   </div>
@@ -283,7 +306,7 @@
         <h1 id="hero-h1">Ehtiyat hissənizi<br/><em>axtaranlar var.</em></h1>
         <p class="hero-sub" id="hero-sub">Partal — ehtiyat hissəsi satıcıları üçün ixtisaslaşmış platforma. Alıcılar sizin məhsulu axtarır — siz sadəcə kataloqunuzu yükləyin.</p>
         <div class="hero-actions">
-          <a href="https://partalo.vercel.app" class="btn-primary">Pulsuz qeydiyyat →</a>
+          <a href="https://az.partal.app" class="btn-primary">Pulsuz qeydiyyat →</a>
           <a href="#how" class="btn-secondary">Necə işləyir</a>
         </div>
         <div class="hero-trust" id="hero-trust">Kart tələb olunmur. Heç bir öhdəlik yoxdur.</div>
@@ -557,7 +580,7 @@
       </div>
     </div>
     <div style="text-align:center; margin-top:40px;">
-      <a href="https://partalo.vercel.app" class="btn-primary" style="font-size:15px; padding:14px 32px;" id="pricing-cta">Pulsuz başla — kart tələb olunmur →</a>
+      <a href="https://az.partal.app" class="btn-primary" style="font-size:15px; padding:14px 32px;" id="pricing-cta">Pulsuz başla — kart tələb olunmur →</a>
     </div>
   </div>
 </section>
@@ -609,15 +632,65 @@
   </div>
 </section>
 
+<!-- SUPPORT BLOCK -->
+<section class="support" id="support">
+  <div class="container">
+    <div class="support-inner">
+      <div class="support-content">
+        <div class="section-label"><span id="support-label-text">Dəstək</span></div>
+        <h2 class="section-title" id="support-title">Texniki biliklər <em>tələb olunmur.</em></h2>
+        <p id="support-sub" style="font-size:16px; color:var(--g700); line-height:1.7; margin:16px 0 28px;">İnternetdə yeni platformalara qoşulmaq həmişə asan olmur. Bilirik. Ona görə də ilk addımda sizə şəxsən kömək edirik — pulsuz.</p>
+        <div class="support-items">
+          <div class="support-item">
+            <div class="support-item-icon">📞</div>
+            <div>
+              <strong id="support-i1-title">Şəxsi köməklik</strong>
+              <p id="support-i1-body">Qeydiyyat zamanı probleminiz varsa — zəng edin. Hər addımda yanınızdayıq.</p>
+            </div>
+          </div>
+          <div class="support-item">
+            <div class="support-item-icon">📋</div>
+            <div>
+              <strong id="support-i2-title">Məhsul əlavəsini biz edirik</strong>
+              <p id="support-i2-body">Qiymət siyahınız yoxdur? Problem deyil. Sizin məhsulları biz sistemə daxil edirik — siz yalnız məlumatları göndərirsiniz.</p>
+            </div>
+          </div>
+          <div class="support-item">
+            <div class="support-item-icon">🎓</div>
+            <div>
+              <strong id="support-i3-title">Pulsuz təlim</strong>
+              <p id="support-i3-body">Platformadan necə istifadə etməyi, kataloqunuzu necə idarə etməyi öyrədirik. Video, zəng, yazışma — sizə necə rahatdırsa.</p>
+            </div>
+          </div>
+        </div>
+        <a href="https://az.partal.app" class="btn-primary" style="margin-top:28px; display:inline-block;" id="support-cta">Əlaqəyə keçin →</a>
+      </div>
+      <div class="support-visual">
+        <div class="support-card">
+          <div class="support-card-header" id="support-card-header">Başlamaq üçün nə lazımdır?</div>
+          <div class="support-checklist">
+            <div class="support-check" id="support-check1"><span class="check-icon">✓</span> Telefon nömrəsi</div>
+            <div class="support-check" id="support-check2"><span class="check-icon">✓</span> Satdığınız məhsulların siyahısı (kağız üzərində olsa belə)</div>
+            <div class="support-check" id="support-check3"><span class="check-icon">✓</span> WhatsApp və ya telefon nömrəsi</div>
+            <div class="support-check no" id="support-check4"><span class="check-icon no">✗</span> Texniki bilik tələb olunmur</div>
+            <div class="support-check no" id="support-check5"><span class="check-icon no">✗</span> Kart tələb olunmur</div>
+            <div class="support-check no" id="support-check6"><span class="check-icon no">✗</span> Müqavilə tələb olunmur</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="cta-final">
   <div class="container">
     <h2 id="cta-title">İndi başlayın —<br/><em>tamamilə pulsuzdur.</em></h2>
     <p id="cta-sub">Qeydiyyat 30 saniyə çəkir. Kart tələb olunmur. İstənilən vaxt çıxa bilərsiniz.</p>
     <div class="cta-final-actions">
-      <a href="https://partalo.vercel.app" class="btn-primary" style="font-size:16px; padding:16px 32px;">Pulsuz qeydiyyat →</a>
+      <a href="https://az.partal.app" class="btn-primary" style="font-size:16px; padding:16px 32px;">Pulsuz qeydiyyat →</a>
     </div>
-    <div class="cta-trust"><span id="cta-registered">Artıq qeydiyyatdan keçmisiniz?</span> <a href="https://partalo.vercel.app" id="cta-login" style="color:var(--black); font-weight:600;">Daxil olun →</a></div>
+    <div class="cta-trust"><span id="cta-registered">Artıq qeydiyyatdan keçmisiniz?</span> <a href="https://az.partal.app" id="cta-login" style="color:var(--black); font-weight:600;">Daxil olun →</a></div>
   </div>
 </section>
 
@@ -630,7 +703,7 @@
         Partal
       </a>
       <div class="footer-links">
-        <a href="https://partalo.vercel.app" class="footer-link-app">Tətbiqə keç</a>
+        <a href="https://az.partal.app" class="footer-link-app">Tətbiqə keç</a>
         <a href="#how" class="footer-link-how">Necə işləyir</a>
         <a href="#faq" class="footer-link-faq">Suallar</a>
       </div>
@@ -709,6 +782,19 @@
       'cta-registered': 'Artıq qeydiyyatdan keçmisiniz?', 'cta-login': 'Daxil olun →',
       'footer-app': 'Tətbiqə keç', 'footer-how': 'Necə işləyir', 'footer-faq': 'Suallar',
       'footer-copy': '© 2026 Partal. Bütün hüquqlar qorunur.',
+      'support-label': 'Dəstək', 'support-title': 'Texniki biliklər <em>tələb olunmur.</em>',
+      'support-sub': 'İnternetdə yeni platformalara qoşulmaq həmişə asan olmur. Bilirik. Ona görə də ilk addımda sizə şəxsən kömək edirik — pulsuz.',
+      'support-i1-title': 'Şəxsi köməklik', 'support-i1-body': 'Qeydiyyat zamanı probleminiz varsa — zəng edin. Hər addımda yanınızdayıq.',
+      'support-i2-title': 'Məhsul əlavəsini biz edirik', 'support-i2-body': 'Qiymət siyahınız yoxdur? Problem deyil. Sizin məhsulları biz sistemə daxil edirik — siz yalnız məlumatları göndərirsiniz.',
+      'support-i3-title': 'Pulsuz təlim', 'support-i3-body': 'Platformadan necə istifadə etməyi öyrədirik. Video, zəng, yazışma — sizə necə rahatdırsa.',
+      'support-cta': 'Əlaqəyə keçin →',
+      'support-card-header': 'Başlamaq üçün nə lazımdır?',
+      'support-check1': '<span class="check-icon">✓</span> Telefon nömrəsi',
+      'support-check2': '<span class="check-icon">✓</span> Satdığınız məhsulların siyahısı (kağız üzərində olsa belə)',
+      'support-check3': '<span class="check-icon">✓</span> WhatsApp və ya telefon nömrəsi',
+      'support-check4': '<span class="check-icon no">✗</span> Texniki bilik tələb olunmur',
+      'support-check5': '<span class="check-icon no">✗</span> Kart tələb olunmur',
+      'support-check6': '<span class="check-icon no">✗</span> Müqavilə tələb olunmur',
     },
     ru: {
       'hero-label': 'Для Азербайджана',
@@ -794,6 +880,19 @@
       'footer-how': 'Как работает',
       'footer-faq': 'Вопросы',
       'footer-copy': '© 2026 Partal. Все права защищены.',
+      'support-label': 'Поддержка', 'support-title': 'Технические знания <em>не нужны.</em>',
+      'support-sub': 'Подключиться к новой платформе бывает непросто. Мы это знаем. Поэтому на первом шаге помогаем лично — бесплатно.',
+      'support-i1-title': 'Личная помощь', 'support-i1-body': 'Возникли трудности при регистрации — позвоните. Мы рядом на каждом шагу.',
+      'support-i2-title': 'Мы добавим товары за вас', 'support-i2-body': 'Нет прайс-листа? Не проблема. Мы вносим ваши товары в систему — вы только присылаете данные.',
+      'support-i3-title': 'Бесплатное обучение', 'support-i3-body': 'Расскажем, как пользоваться платформой и управлять каталогом. Видео, звонок, переписка — как вам удобно.',
+      'support-cta': 'Связаться с нами →',
+      'support-card-header': 'Что нужно для старта?',
+      'support-check1': '<span class="check-icon">✓</span> Номер телефона',
+      'support-check2': '<span class="check-icon">✓</span> Список товаров (даже на бумаге)',
+      'support-check3': '<span class="check-icon">✓</span> WhatsApp или телефон',
+      'support-check4': '<span class="check-icon no">✗</span> Технические знания не нужны',
+      'support-check5': '<span class="check-icon no">✗</span> Карта не нужна',
+      'support-check6': '<span class="check-icon no">✗</span> Договор не нужен',
     },
     en: {
       'hero-label': 'For Azerbaijan',
@@ -879,6 +978,19 @@
       'footer-how': 'How it works',
       'footer-faq': 'FAQ',
       'footer-copy': '© 2026 Partal. All rights reserved.',
+      'support-label': 'Support', 'support-title': 'No technical skills <em>required.</em>',
+      'support-sub': 'Joining a new online platform is not always easy. We know. That is why we personally help you with the first steps — for free.',
+      'support-i1-title': 'Personal assistance', 'support-i1-body': 'Having trouble registering? Call us. We are with you at every step.',
+      'support-i2-title': 'We add your products for you', 'support-i2-body': 'No price list? No problem. We enter your products into the system — you just send us the information.',
+      'support-i3-title': 'Free training', 'support-i3-body': 'We teach you how to use the platform and manage your catalog. Video, call, or chat — whatever works for you.',
+      'support-cta': 'Get in touch →',
+      'support-card-header': 'What do you need to start?',
+      'support-check1': '<span class="check-icon">✓</span> Phone number',
+      'support-check2': '<span class="check-icon">✓</span> A list of your products (even on paper)',
+      'support-check3': '<span class="check-icon">✓</span> WhatsApp or phone number',
+      'support-check4': '<span class="check-icon no">✗</span> No technical skills needed',
+      'support-check5': '<span class="check-icon no">✗</span> No card needed',
+      'support-check6': '<span class="check-icon no">✗</span> No contract needed',
     }
   };
 
@@ -965,6 +1077,19 @@
     set('cta-sub', t['cta-sub']);
     set('cta-registered', t['cta-registered']);
     set('cta-login', t['cta-login']);
+
+    // Support
+    set('support-label-text', t['support-label']);
+    set('support-title', t['support-title']);
+    set('support-sub', t['support-sub']);
+    set('support-i1-title', t['support-i1-title']); set('support-i1-body', t['support-i1-body']);
+    set('support-i2-title', t['support-i2-title']); set('support-i2-body', t['support-i2-body']);
+    set('support-i3-title', t['support-i3-title']); set('support-i3-body', t['support-i3-body']);
+    set('support-cta', t['support-cta']);
+    set('support-card-header', t['support-card-header']);
+    set('support-check1', t['support-check1']); set('support-check2', t['support-check2']);
+    set('support-check3', t['support-check3']); set('support-check4', t['support-check4']);
+    set('support-check5', t['support-check5']); set('support-check6', t['support-check6']);
 
     // Footer
     document.querySelectorAll('.footer-link-app').forEach(el => { if(t['footer-app']) el.textContent = t['footer-app']; });
